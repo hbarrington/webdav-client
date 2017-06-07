@@ -18,7 +18,8 @@ module.exports = {
         options = deepmerge({ headers: {} }, options || {});
         return fetch(url + directoryPath, {
                 method: "MKCOL",
-                headers: options.headers
+                headers: options.headers,
+                credentials: options.credentials
             })
             .then(responseHandlers.handleResponseCode);
     },
@@ -35,6 +36,7 @@ module.exports = {
         return fetch(url + filePath, {
                 method: "PUT",
                 headers: options.headers,
+                credentials: options.credentials,
                 body: data
             })
             .then(responseHandlers.handleResponseCode);
@@ -52,6 +54,7 @@ module.exports = {
         return fetch(url + filePath, {
                 method: "PUT",
                 headers: options.headers,
+                credentials: options.credentials,
                 body: text
             })
             .then(responseHandlers.handleResponseCode);

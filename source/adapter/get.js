@@ -37,7 +37,8 @@ var adapter = module.exports = {
                             Depth: 1
                         },
                         options.headers
-                    )
+                    ),
+                    credentials: options.credentials
                 }
             )
             .then(responseHandlers.handleResponseCode)
@@ -64,7 +65,8 @@ var adapter = module.exports = {
         options = deepmerge({ headers: {} }, options || {});
         return fetch(url + filePath, {
                 method: "GET",
-                headers: options.headers
+                headers: options.headers,
+                credentials: options.credentials
             })
             .then(responseHandlers.handleResponseCode)
             .then(function(res) {
@@ -83,7 +85,8 @@ var adapter = module.exports = {
         }
         return fetch(url + filePath, {
                 method: "GET",
-                headers: options.headers
+                headers: options.headers,
+                credentials: options.credentials
             })
             .then(responseHandlers.handleResponseCode)
             .then(function(res) {
@@ -100,7 +103,8 @@ var adapter = module.exports = {
                         Depth: 1
                     },
                     options.headers
-                )
+                ),
+                credentials: options.credentials
             })
             .then(responseHandlers.handleResponseCode)
             .then(function(res) {
@@ -129,7 +133,8 @@ var adapter = module.exports = {
     getTextContents: function getTextContents(url, filePath, options) {
         options = deepmerge({ headers: {} }, options || {});
         return fetch(url + filePath, {
-                headers: options.headers
+                headers: options.headers,
+                credentials: options.credentials
             })
             .then(responseHandlers.handleResponseCode)
             .then(function(res) {

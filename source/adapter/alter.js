@@ -9,7 +9,8 @@ module.exports = {
         options = deepmerge({ headers: {} }, options || {});
         return fetch(url + targetPath, {
                 method: "DELETE",
-                headers: options.headers
+                headers: options.headers,
+                credentials: options.credentials
             })
             .then(responseHandlers.handleResponseCode);
     },
@@ -23,7 +24,8 @@ module.exports = {
                         Destination: url + targetFilePath
                     },
                     options.headers
-                )
+                ),
+                credentials: options.credentials
             })
             .then(responseHandlers.handleResponseCode);
     }
